@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="杨晓东&amp;Blog">
+    <meta name="keywords" content="基于Xcode11创建自定义UIWindow, 杨晓东&amp;Blog">
     <meta name="description" content="一点一滴每一天">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>杨晓东&amp;Blog</title>
+    <title>基于Xcode11创建自定义UIWindow | 杨晓东&amp;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">基于Xcode11创建自定义UIWindow</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ios/">
+                                <span class="chip bg-color">ios</span>
+                            </a>
+                        
+                            <a href="/tags/objective-c/">
+                                <span class="chip bg-color">objective-c</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ios/" class="post-category">
+                                ios
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-01
+                    2021-10-21
                 </div>
                 
 
@@ -468,7 +485,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="基于Xcode11创建自定义UIWindow"><a href="#基于Xcode11创建自定义UIWindow" class="headerlink" title="基于Xcode11创建自定义UIWindow"></a>基于Xcode11创建自定义UIWindow</h1><p>最近更新Xcode 11.4，在创建项目之后发现多了苹果分屏技术，新增了SceneDelegate这个文件，另外AppDelegate文件结构也发生了变化，给人一种似曾相识又不同的感觉，总的来说之前熟悉的Window不再由AppDelegate管理，而是交给了SceneDelegate。</p>
-<p>如下图即可看出目录结构和info配置变化：<br><img src="/.io//16277871609165/16277872068447.png"></p>
+<p>如下图即可看出目录结构和info配置变化：<br><img src="/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/16277872068447.png"></p>
 <p>简要介绍Application Scene Manifest分屏配置：</p>
 <pre class="line-numbers language-none"><code class="language-none">enable Multipe Windows --- 是否允许分屏
 Scene Configuratiton --- 屏幕配置项
@@ -502,7 +519,7 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>效果图：</p>
-<p><img src="/.io//16277871609165/16277872853169.png" alt="-w308"></p>
+<p><img src="/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/16277872853169.png" alt="-w308"></p>
 <p>二、针对iOS13系统以下：</p>
 <p>a. 删除info.plist文件中的Application Scene Manifest选项;</p>
 <p>b. 删除SceneDelegate文件;</p>
@@ -521,7 +538,7 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>效果图：</p>
-<p><img src="/.io//16277871609165/16277873129770.png" alt="-w308"></p>
+<p><img src="/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/16277873129770.png" alt="-w308"></p>
 <p>至此，我们又回到了曾经熟悉的开发场景。</p>
 
                 
@@ -549,7 +566,7 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yangxiaodg.github.io/2021/08/01/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">https://yangxiaodg.github.io/2021/08/01/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/</a>
+                    <a href="https://yangxiaodg.github.io/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">https://yangxiaodg.github.io/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -586,7 +603,15 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/ios/">
+                                    <span class="chip bg-color">ios</span>
+                                </a>
+                            
+                                <a href="/tags/objective-c/">
+                                    <span class="chip bg-color">objective-c</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -635,34 +660,50 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/08/01/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">
+                <a href="/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="基于Xcode11创建自定义UIWindow">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">基于Xcode11创建自定义UIWindow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            基于Xcode11创建自定义UIWindow
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yangxiaodg
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ios/" class="post-category">
+                                    ios
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ios/">
+                        <span class="chip bg-color">ios</span>
+                    </a>
+                    
+                    <a href="/tags/objective-c/">
+                        <span class="chip bg-color">objective-c</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -673,34 +714,50 @@ Storyboard Name --- Storyboard名称<span aria-hidden="true" class="line-numbers
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/01/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">
+                <a href="/2021/10/21/ji-yu-xcode11-chuang-jian-zi-ding-yi-uiwindow/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="基于Xcode11创建自定义UIWindow">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">基于Xcode11创建自定义UIWindow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            基于Xcode11创建自定义UIWindow
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yangxiaodg
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ios/" class="post-category">
+                                    ios
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ios/">
+                        <span class="chip bg-color">ios</span>
+                    </a>
+                    
+                    <a href="/tags/objective-c/">
+                        <span class="chip bg-color">objective-c</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
