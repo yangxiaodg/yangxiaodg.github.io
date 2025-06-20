@@ -1,0 +1,1510 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="1行代码搞定请假系统, 杨晓东&amp;Blog">
+    <meta name="description" content="SpringBoot极简审批流：1行代码搞定请假系统">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>1行代码搞定请假系统 | 杨晓东&amp;Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">杨晓东&amp;Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">杨晓东&amp;Blog</div>
+        <div class="logo-desc">
+            
+            一点一滴每一天
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yangxiaodg" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yangxiaodg" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">1行代码搞定请假系统</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/springboot/">
+                                <span class="chip bg-color">springboot</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E/">
+                                <span class="chip bg-color">流程引擎</span>
+                            </a>
+                        
+                            <a href="/tags/activity/">
+                                <span class="chip bg-color">activity</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                            <a href="/categories/java/springboot/" class="post-category">
+                                springboot
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-06-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-06-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    36 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>工作流审批功能是办公OA系统核心能力，如果让你设计一个工作流审批系统，你会吗？千万不要小瞧OA内部系统的复杂性，大家可以头脑风暴思考一下实现方案。</p>
+<p>要明白工作流审批涉及多个用户的任务流转，多个流程分支跳转，虽然是办公内部系统，但是这个系统并不简单如果没有强大的工作流引擎，难以高效扩展旧流程，难以增加新流程，工作流审批将成为公司所有人的噩梦</p>
+<p>但是在使用 activiti开源工作流引擎后，一切痛苦与噩梦均烟消云散~</p>
+<p>activiti 支持新增流程非常简单，只需要两步</p>
+<ul>
+<li>画个流程图</li>
+<li>搭配前端页面</li>
+</ul>
+<h3 id="1-首先画一个流程图"><a href="#1-首先画一个流程图" class="headerlink" title="1. 首先画一个流程图"></a>1. 首先画一个流程图</h3><p>将文章开头的需求，转化为 activiti 流程图，使用Idea 安装 actiBPM 插件，创建该流程图，文件命名apply.mpmn，实现请假流程的二级审批能力</p>
+<ul>
+<li>一级主管审批</li>
+<li>超过3天，二级主管审批。</li>
+</ul>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104549237.jpeg" alt="图片"></p>
+<h3 id="2-测试流程图"><a href="#2-测试流程图" class="headerlink" title="2. 测试流程图"></a>2. 测试流程图</h3><h4 id="首先创建工作流引擎，部署流程图"><a href="#首先创建工作流引擎，部署流程图" class="headerlink" title="首先创建工作流引擎，部署流程图"></a>首先创建工作流引擎，部署流程图</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;创建工作流引擎  
+ProcessEngine engine &#x3D; ProcessEngines.getDefaultProcessEngine();  
+  
+&#x2F;&#x2F;RepositoryService用于部署流程图  
+RepositoryService repositoryService &#x3D; engine.getRepositoryService();  
+  
+&#x2F;&#x2F;部署请假流程图  
+repositoryService.createDeployment().addClasspathResource(&quot;processes&#x2F;apply.bpmn&quot;).deploy(); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>部署流程图，这部分工作一般放在工作流的后台系统，开发创建好流程图以后，上传部署到系统中。无需开发修改代码</p>
+<p><code>repositoryService.createDeployment().addClasspathResource(&quot;processes/apply.bpmn&quot;).deploy();</code>这行代码负责部署流程图到流程引擎。 工作流引擎会解析该流程图文件，创建流程模版，接下来就可以在使用该流程模版，发起流程实例了。</p>
+<h4 id="员工zhang3，发起新流程，设置审批人"><a href="#员工zhang3，发起新流程，设置审批人" class="headerlink" title="员工zhang3，发起新流程，设置审批人"></a>员工zhang3，发起新流程，设置审批人</h4><pre class="line-numbers language-none"><code class="language-none">Map&lt;String, Object&gt; variableMap &#x3D; new HashMap&lt;&gt;();  
+variableMap.put(&quot;applyUser&quot;, &quot;zhang3&quot;);  
+variableMap.put(&quot;supervisor&quot;, &quot;li4&quot;);  
+variableMap.put(&quot;upperSupervisor&quot;, &quot;wang5&quot;);  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>员工zhang3 提出请假申请，在发起新流程时，通过OA其他系统，查到zhang3的一级主管是li4，二级主管是wang5，于是设置上审批人。 有人疑问，以下变量applyUser等，是系统默认的，还是在哪里指定的？ 在创建主管审批节点时，指定审批人变量 <code>$&#123;applyUser&#125;</code></p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104554915.jpeg" alt="图片"></p>
+<p>想象一下，如果请假类的流程均可能需要一二级主管审批，是不是可以在发起流程时，统一填充一二级主管 审批人变量。这部分代码是不是就是通用的，新增流程时无需二次修改了。</p>
+<h4 id="发起一个新流程"><a href="#发起一个新流程" class="headerlink" title="发起一个新流程"></a>发起一个新流程</h4><pre class="line-numbers language-none"><code class="language-none">ProcessInstance instance &#x3D; runtimeService.startProcessInstanceByKey(&quot;apply_processor_1&quot;, variableMap);  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如上代码指定了全流程审批人，发起了一个新流程。 有人会疑问<code>apply_processor_1</code> 是什么？在哪里指定的，这是流程模版的 Key，在使用Idea插件画流程图时，需要指定流程图的Key</p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104600100.jpeg" alt="图片"></p>
+<h4 id="申请人设置请假天数"><a href="#申请人设置请假天数" class="headerlink" title="申请人设置请假天数"></a>申请人设置请假天数</h4><pre class="line-numbers language-none"><code class="language-none">TaskService taskService &#x3D; engine.getTaskService();  
+Task firstTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;zhang3&quot;).singleResult();  
+  
+taskService.complete(firstTask.getId(), Maps.newHashMap(&quot;day&quot;, 4));  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>创建并开启流程实例后，工作流引擎相当于帮你执行了 流程图的 开始节点，然后流程执行到 请假申请节点，此时通过 <code>taskService</code> 查询 zhang3的 处理任务。<code>TaskService</code>是通过第一步<code>ProcessEngine</code> 获取到的，主要用于任务查询。</p>
+<p>有人会疑问，为什么要区分创建流程、处理申请人审批任务两个步骤，我们在提请假申请时，只需要提申请一步就完成了。 实际上 提请假申请时，系统会帮你创建好流程，然后自动替你完成审批。</p>
+<p>为什么工作流引擎要区分为两步呢？所有的流程图都需要经过 开始节点，也都需要结束节点，如此设计方式，可以让工作流引擎的抽象层次更高。它可以在开始和结束时点建立事件通知，维护流程状态的完整性。</p>
+<p>接下来，zhang3 通过 <code>taskService</code>完成该任务，并且设置变量 day=4，即请假天数是4天。</p>
+<h4 id="一级主管审批任务"><a href="#一级主管审批任务" class="headerlink" title="一级主管审批任务"></a>一级主管审批任务</h4><pre class="line-numbers language-none"><code class="language-none">Task secondTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;li4&quot;).singleResult();  
+  
+taskService.setVariable(secondTask.getId(), &quot;result1&quot;, true);  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来，zhang3和 领导li4 说，”我家里有事要请假，辛苦4哥审批一下“，领导在自己的审批后台查询 审批任务，查到后，通过了审批任务。</p>
+<p>有人会疑问，怎么标识 审批通过和不通过呢？ result1 是什么东西？系统默认的，还是在何处甚至的变量? 在流程图上配置的</p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104604997.jpeg" alt="图片"></p>
+<p>工作流引擎没有审批通过不通过的概念。当流程上存在  A 和 B 两个分支时，流程图上可以使用排他网关进行分支判定。如请假流程图中，一级审批结果就是一个排他网关。在网关的下游分支上配置如果要走A分支，应该满足哪些条件；走B分支，要满足哪个条件；</p>
+<p>而排他网关上并没有配置路由条件。例如在一级主管审批后，流程上设置新的变量 result1，经过排他网关时，A分支 是 #{<code>result1==true</code>} 判定通过，于是走了A分支。工作流引擎负责检查网关的下级分支的条件是否满足，哪个条件满足走哪个分支。</p>
+<p>也就是说上一个任务在处理时，并不知道接下来走哪个分支，也没有指定走哪个分支，而是将自己的处理结果放到流程变量中，在排他网关的下游分支条件上根据流程变量进行判断，接下来走哪个分支，这就是工作流引擎对于流程的抽象。</p>
+<p>工作流引擎负责驱动流程到排他网关，至于走哪个分支，由分支上的条件决定！ 这个思维一定要记住哦~</p>
+<h4 id="继续剩余的流程"><a href="#继续剩余的流程" class="headerlink" title="继续剩余的流程"></a>继续剩余的流程</h4><p>一级主管审批通过后，需要判断是否需要二级审批，这时又有一个排他网关，使用的条件就是 <code>#&#123;day&gt;3&#125;</code>，或者 <code>#&#123;day&lt;=3&#125;</code></p>
+<p>在第2步中，zhang3 申请了 4天的假期，于是走到了二级主管审批页面。二级主管wang5 在审批任务列表中，找到了zhang3的请假申请，然后点击了通过。</p>
+<pre class="line-numbers language-none"><code class="language-none">Task thirdTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;wang5&quot;).singleResult();  
+if (thirdTask !&#x3D; null) &#123;  
+   taskService.setVariable(thirdTask.getId(), &quot;result2&quot;, true);  
+  
+   log.warn(&quot;用户任务完成，流程ID:&#123;&#125;, 任务名称:&#123;&#125;, id:&#123;&#125;, assignee:&#123;&#125;&quot;, thirdTask.getProcessInstanceId(), thirdTask.getName(), thirdTask.getId(), thirdTask.getAssignee(), thirdTask.getDelegationState());  
+   taskService.complete(thirdTask.getId());  
+&#125; else &#123;  
+   log.warn(&quot;没有查到二级主管审批任务&quot;);  
+&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来流程上没有其他审批任务，但是引擎依然会继续驱动流程，如下图中二级主管审批结果通过或拒绝，分别进入到两个不同的终点。</p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104610057.jpeg" alt="图片"></p>
+<p>值得一提的是，上面的代码仅仅是各个审批人在处理审批任务时，必要的代码、通用的代码。如审批是否通过这一流程变量，完全可以统一规范，无需二次开发。例如 二级主管审批通过设置了 result2，实际上可以使用 二级主管审批这个节点的id 后缀，如 result_10来代表执行结果，规范以后，流程审批代码更为统一。新增流程模版时，在审批任务节点，审批通过或审批拒绝均不需要再次开发代码。</p>
+<p>惊喜的事情是：我们没有开发任何一行流程驱动和分支判定相关的代码。</p>
+<p>但是我们依然需要处理前端页面。因为请假申请页面上，不同的假期类型需要的表单参数不同，需要新增前端页面，新增发起流程的后端接口。</p>
+<p>相比整体的流程控制代码，这部分开发工作量大大降低，难度更是大大降低。</p>
+<p>接下来，我提出一个问题，如果新增一个需求，要求请病假的时候，需要HR审批，你知道如何修改流程图，支持新的处理流程吗?</p>
+<p>很简单，在审批通过终节点的前面，再加一个排他网关，判断请假类型== ”带薪病假“，如果条件通过则增加HR审批节点，如果条件不通过，则直接走到 审批通过的 终点。不需要开发一行代码就能支持需求哦~</p>
+<p>有了工作流引擎 activiti ,新增和修改流程 都变得非常简单，它帮我们完成了所有的流程驱动和分支判定工作。 这就是工作流引擎的价值之一。</p>
+<h4 id="如何查看完整的执行流程图"><a href="#如何查看完整的执行流程图" class="headerlink" title="如何查看完整的执行流程图"></a>如何查看完整的执行流程图</h4><p>通过流程引擎 <code>ProcessEngine</code>获取<code>HistoryService</code>；通过流程实例id，拿到流程执行的所有节点。执行记录如下图，可完整看到流程执行的完整过程。</p>
+<pre class="line-numbers language-none"><code class="language-none">List&lt;HistoricActivityInstance&gt; activityInstanceList &#x3D;   
+historyService.createHistoricActivityInstanceQuery().processInstanceId(instance.getId()).list();  
+for (HistoricActivityInstance historicActivityInstance : activityInstanceList) &#123;  
+   log.warn(&quot;activityName:&#123;&#125;,activityType:&#123;&#125;, assignee:&#123;&#125;, taskId:&#123;&#125;&quot;,  
+         historicActivityInstance.getActivityName(),  
+         historicActivityInstance.getActivityType(),  
+         historicActivityInstance.getAssignee(),  
+         historicActivityInstance.getTaskId());  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104616137.jpeg" alt="图片"></p>
+<h3 id="3-activiti-项目基础配置"><a href="#3-activiti-项目基础配置" class="headerlink" title="3. activiti 项目基础配置"></a>3. activiti 项目基础配置</h3><h4 id="首先引入activiti-pom"><a href="#首先引入activiti-pom" class="headerlink" title="首先引入activiti pom"></a>首先引入activiti pom</h4><pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;  
+    &lt;groupId&gt;org.activiti&lt;&#x2F;groupId&gt;  
+    &lt;artifactId&gt;activiti-spring-boot-starter-basic&lt;&#x2F;artifactId&gt;  
+    &lt;version&gt;5.23.0&lt;&#x2F;version&gt;  
+&lt;&#x2F;dependency&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我使用的是activiti 5.x，配套的 <code>Springboot starter parent</code>是</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;parent&gt;  
+    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;  
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;  
+    &lt;version&gt;2.5.4&lt;&#x2F;version&gt;  
+    &lt;relativePath&#x2F;&gt;   
+&lt;&#x2F;parent&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="配置数据源和工作流引擎配置类"><a href="#配置数据源和工作流引擎配置类" class="headerlink" title="配置数据源和工作流引擎配置类"></a>配置数据源和工作流引擎配置类</h4><p>activiti 需要使用方提供数据库配置，在项目启动时，activiti 会自动检查数据库是否包含activiti 相关的表，如果不包含，会自动帮你建表。</p>
+<p>在学习activiti 的过程中，我没有安装MySQL，而是使用H2 内存数据库，该数据库在Java进程中，随JVM同生共死，无需担心重复启动，数据被污染等问题，非常适合学习activiti 的时候使用</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;  
+&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;  
+       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;  
+       xmlns:context&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;  
+       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context https:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&#x2F;spring-context.xsd&quot;&gt;  
+  
+  
+    &lt;bean id&#x3D;&quot;dataSource&quot; class&#x3D;&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;  
+        &lt;property name&#x3D;&quot;driverClassName&quot; value&#x3D;&quot;org.h2.Driver&quot;&#x2F;&gt;  
+        &lt;!--&lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:h2:mem:testdb;DB_CLOSE_DELAY&#x3D;-1;mode&#x3D;MySQL;TRACE_LEVEL_SYSTEM_OUT&#x3D;2&quot;&#x2F;&gt;--&gt;  
+        &lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:h2:mem:testdb;DB_CLOSE_DELAY&#x3D;-1;mode&#x3D;MySQL;&quot;&#x2F;&gt;  
+    &lt;&#x2F;bean&gt;  
+    &lt;bean id&#x3D;&quot;processEngineConfiguration&quot; class&#x3D;&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;&gt;  
+        &lt;property name&#x3D;&quot;dataSource&quot; ref&#x3D;&quot;dataSource&quot;&#x2F;&gt;  
+        &lt;property name&#x3D;&quot;databaseSchemaUpdate&quot; value&#x3D;&quot;true&quot;&#x2F;&gt;  
+    &lt;&#x2F;bean&gt;  
+    &lt;context:component-scan base-package&#x3D;&quot;com.muppet.activiti&quot;&#x2F;&gt;  
+&lt;&#x2F;beans&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>H2 需要的POM如下</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;  
+    &lt;groupId&gt;com.h2database&lt;&#x2F;groupId&gt;  
+    &lt;artifactId&gt;h2&lt;&#x2F;artifactId&gt;  
+    &lt;scope&gt;runtime&lt;&#x2F;scope&gt;  
+&lt;&#x2F;dependency&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="全部示例代码"><a href="#全部示例代码" class="headerlink" title="全部示例代码"></a>全部示例代码</h4><pre class="line-numbers language-none"><code class="language-none">@SpringBootTest(classes &#x3D; &#123;ActivitiStartApplication.class&#125;)  
+class ActivitiStartApplicationTests &#123;  
+  
+   public static final Logger log &#x3D; LoggerFactory.getLogger(ActivitiStartApplicationTests.class);  
+     
+   @Autowired  
+   private ApplyTaskListener applyTaskListener;  
+  
+   @Test  
+   void contextLoads() &#123;  
+      System.out.println(&quot;启动成功&quot;);  
+  
+      ProcessEngine engine &#x3D; ProcessEngines.getDefaultProcessEngine();  
+      RepositoryService repositoryService &#x3D; engine.getRepositoryService();  
+      RuntimeService runtimeService &#x3D; engine.getRuntimeService();  
+      TaskService taskService &#x3D; engine.getTaskService();  
+      HistoryService historyService &#x3D; engine.getHistoryService();  
+      repositoryService.createDeployment().addClasspathResource(&quot;processes&#x2F;apply.bpmn&quot;).deploy();  
+  
+      Map&lt;String, Object&gt; variableMap &#x3D; new HashMap&lt;&gt;();  
+      variableMap.put(&quot;applyUser&quot;, &quot;zhang3&quot;);  
+      variableMap.put(&quot;supervisor&quot;, &quot;li4&quot;);  
+      variableMap.put(&quot;upperSupervisor&quot;, &quot;wang5&quot;);  
+  
+      ProcessInstance instance &#x3D; runtimeService.startProcessInstanceByKey(&quot;apply_processor_1&quot;, variableMap);  
+  
+  
+      Task firstTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;zhang3&quot;).singleResult();  
+  
+      log.warn(&quot;用户任务完成，流程ID:&#123;&#125;, 任务名称 :&#123;&#125;, id:&#123;&#125;, assignee:&#123;&#125;&quot;, firstTask.getProcessInstanceId(), firstTask.getName(), firstTask.getId(), firstTask.getAssignee());  
+      taskService.complete(firstTask.getId(), Maps.newHashMap(&quot;day&quot;, 4));  
+  
+  
+      Task secondTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;li4&quot;).singleResult();  
+  
+      taskService.setVariable(secondTask.getId(), &quot;result1&quot;, true);  
+      log.warn(&quot;用户任务完成流程ID:&#123;&#125;, 任务名称 :&#123;&#125;, id:&#123;&#125;, assignee:&#123;&#125;&quot;, secondTask.getProcessInstanceId(), secondTask.getName(), secondTask.getId(), secondTask.getAssignee());  
+      taskService.complete(secondTask.getId());  
+  
+      Task thirdTask &#x3D; taskService.createTaskQuery().taskAssignee(&quot;wang5&quot;).singleResult();  
+      if (thirdTask !&#x3D; null) &#123;  
+         taskService.setVariable(thirdTask.getId(), &quot;result2&quot;, true);  
+  
+         log.warn(&quot;用户任务完成，流程ID:&#123;&#125;, 任务名称:&#123;&#125;, id:&#123;&#125;, assignee:&#123;&#125;&quot;, thirdTask.getProcessInstanceId(), thirdTask.getName(), thirdTask.getId(), thirdTask.getAssignee(), thirdTask.getDelegationState());  
+         taskService.complete(thirdTask.getId());  
+      &#125; else &#123;  
+         log.warn(&quot;没有查到二级主管审批任务&quot;);  
+      &#125;  
+  
+      log.warn(&quot;流程执行过程如下&quot;);  
+      List&lt;HistoricActivityInstance&gt; activityInstanceList &#x3D; historyService.createHistoricActivityInstanceQuery().processInstanceId(instance.getId()).list();  
+      for (HistoricActivityInstance historicActivityInstance : activityInstanceList) &#123;  
+         log.warn(&quot;activityName:&#123;&#125;,activityType:&#123;&#125;, assignee:&#123;&#125;, taskId:&#123;&#125;&quot;,  
+               historicActivityInstance.getActivityName(),  
+               historicActivityInstance.getActivityType(),  
+               historicActivityInstance.getAssignee(),  
+               historicActivityInstance.getTaskId());  
+      &#125;  
+   &#125;  
+&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-activiti-工作流引擎数据库设计"><a href="#4-activiti-工作流引擎数据库设计" class="headerlink" title="4. activiti 工作流引擎数据库设计"></a>4. activiti 工作流引擎数据库设计</h3><p>为了保证流程的可靠性和可恢复性，工作流引擎通常会将流程实例的状态和数据持久化存储到中。在流程执行过程中，引擎会不断地更新数据库中的状态数据。activiti 共包含了一系列用于存储流程定义、运行时数据以及历史记录的表。</p>
+<p><strong>1. 流程定义相关表</strong></p>
+<p><code>ACT_RE_*</code>系列表：主要包括流程定义（<code>Process Definitions</code>）、流程资源（<code>Resources</code>）和其他静态信息的存储。</p>
+<p><strong>2. 运行时数据表</strong></p>
+<p><code>ACT_RU_*</code>系列表：这些表存放了流程实例执行过程中的实时数据，如任务（Tasks）、流程实例（Process Instances）、变量（Variables）、执行对象（Executions）等。</p>
+<p><strong>3. 历史数据表</strong></p>
+<p><code>ACT_HI_*</code>系列表：当流程实例结束或达到特定条件时，相关的运行时数据会被迁移到历史表中，以供后期审计、报告分析之用。</p>
+<p><strong>4. 身份和权限表</strong></p>
+<p><code>ACT_ID_*</code>系列表：主要用于存储用户、组以及相关的身份和权限信息。</p>
+<p><strong>5. 其他辅助表</strong></p>
+<p>包括事件日志表：（Event Log）、作业及定时器表（Job and Timer entities）等，它们服务于调度、异步处理等功能需求。</p>
+<h3 id="5-工作流引擎API-介绍"><a href="#5-工作流引擎API-介绍" class="headerlink" title="5. 工作流引擎API 介绍"></a>5. 工作流引擎API 介绍</h3><p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104624074.jpeg" alt="图片"></p>
+<ul>
+<li><strong>ProcessEngine:</strong> 表示Activiti工作流引擎的入口，用于获取各种管理API操作的对象。</li>
+<li><strong>RepositoryService:</strong> 用于管理流程定义的API，包括流程的部署和删除等操作。</li>
+<li><strong>RuntimeService:</strong> 用于管理流程实例的API，包括启动、暂停和删除流程实例等操作。</li>
+<li><strong>TaskService:</strong> 用于管理任务的API，包括创建、完成和查询任务等操作。</li>
+<li><strong>HistoryService:</strong> 用于查询历史记录的API，包括查询已完成的任务、流程实例和变量等信息。</li>
+</ul>
+<p>这5个Service我们已经很熟悉了，现在跟大家介绍这部分API，大家应该更容易理解了。</p>
+<p>其中 <code>ProcessEngine</code>我们用来获取各类Service类，<code>RepositoryService</code> 用来部署流程图，<code>RuntimeService</code>用来创建流程图实例、<code>TaskService</code>用来查询任务和完成任务；<code>HistoryService</code>用来查看流程执行过程。</p>
+<h3 id="6-什么是BPMN流程图"><a href="#6-什么是BPMN流程图" class="headerlink" title="6. 什么是BPMN流程图"></a>6. 什么是BPMN流程图</h3><p>BPMN（‌Business Process Modeling Notation）‌是一种流程建模的通用和标准语言，‌用来绘制业务流程图，‌以便更好地让各部门之间理解业务流程和相互关系。‌</p>
+<p>BPMN 1.0规范于2004年5月对外发布，‌而BPMN 2.0标准由OMG于2011年推出，‌对BPMN进行了重新定义。‌</p>
+<p>Activiti 是由 jBPM 的创建者 Tom Baeyens 离开 JBoss 之后建立的项目，构建在开发 jBPM 版本 1 到 4 时积累的多年经验的基础之上，旨在创建下一代的 BPM 解决方案。</p>
+<p>同时 Activiti 选择了 Apache 许可，一方面是希望 Activiti 能有更长久的生命力，因为它不受任何个人或是公司的控制而是属于整个社区，另一方面更是希望这个宽松的许可能够让 Activiti BPM 引擎和 BPMN2.0 被更广泛的采纳、使用和商业化。</p>
+<h4 id="Idea-actiBPM-插件如何安装"><a href="#Idea-actiBPM-插件如何安装" class="headerlink" title="Idea actiBPM 插件如何安装"></a>Idea actiBPM 插件如何安装</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/No2-explorer/p/11032469.html">https://www.cnblogs.com/No2-explorer/p/11032469.html</a></p>
+<h4 id="Idea新建的流程图是什么"><a href="#Idea新建的流程图是什么" class="headerlink" title="Idea新建的流程图是什么"></a>Idea新建的流程图是什么</h4><p>本质是一个XML，可以通过BPMN 可视化工具解析，如下XML代码是 请假流程图</p>
+<p><strong>创建一个二级主管审批节点</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;userTask activiti:assignee&#x3D;&quot;$&#123;upperSupervisor&#125;&quot; activiti:async&#x3D;&quot;false&quot; activiti:exclusive&#x3D;&quot;true&quot; id&#x3D;&quot;_10&quot; name&#x3D;&quot;二级主管审批&quot;&#x2F;&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>创建一个审批结果的分支</strong></p>
+<p>分支上包含连接了哪两个节点，以及分支的条件表达式 <code>#&#123;result2==true&#125;</code></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;sequenceFlow id&#x3D;&quot;_19&quot; sourceRef&#x3D;&quot;_17&quot; targetRef&#x3D;&quot;_8&quot;&gt;  
+  &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result2&#x3D;&#x3D;false&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+&lt;&#x2F;sequenceFlow&gt;  
+&lt;sequenceFlow id&#x3D;&quot;_20&quot; sourceRef&#x3D;&quot;_17&quot; targetRef&#x3D;&quot;_11&quot;&gt;  
+  &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result2&#x3D;&#x3D;true&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+&lt;&#x2F;sequenceFlow&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>请假流程图完整XML</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; standalone&#x3D;&quot;yes&quot;?&gt;  
+&lt;definitions xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.omg.org&#x2F;spec&#x2F;BPMN&#x2F;20100524&#x2F;MODEL&quot; xmlns:activiti&#x3D;&quot;http:&#x2F;&#x2F;activiti.org&#x2F;bpmn&quot; xmlns:bpmndi&#x3D;&quot;http:&#x2F;&#x2F;www.omg.org&#x2F;spec&#x2F;BPMN&#x2F;20100524&#x2F;DI&quot; xmlns:omgdc&#x3D;&quot;http:&#x2F;&#x2F;www.omg.org&#x2F;spec&#x2F;DD&#x2F;20100524&#x2F;DC&quot; xmlns:omgdi&#x3D;&quot;http:&#x2F;&#x2F;www.omg.org&#x2F;spec&#x2F;DD&#x2F;20100524&#x2F;DI&quot; xmlns:tns&#x3D;&quot;http:&#x2F;&#x2F;www.activiti.org&#x2F;test&quot; xmlns:xsd&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema&quot; xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot; expressionLanguage&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;XPath&quot; id&#x3D;&quot;m1723259512248&quot; name&#x3D;&quot;&quot; targetNamespace&#x3D;&quot;http:&#x2F;&#x2F;www.activiti.org&#x2F;test&quot; typeLanguage&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema&quot;&gt;  
+  &lt;process id&#x3D;&quot;apply_processor_1&quot; isClosed&#x3D;&quot;false&quot; isExecutable&#x3D;&quot;true&quot; processType&#x3D;&quot;None&quot;&gt;  
+    &lt;startEvent id&#x3D;&quot;_4&quot; name&#x3D;&quot;开始&quot;&gt;  
+      &lt;extensionElements&gt;  
+        &lt;activiti:executionListener class&#x3D;&quot;com.muppet.activiti.listener.ApplyTaskListener&quot; event&#x3D;&quot;end&quot;&#x2F;&gt;  
+      &lt;&#x2F;extensionElements&gt;  
+    &lt;&#x2F;startEvent&gt;  
+    &lt;userTask activiti:assignee&#x3D;&quot;#&#123;applyUser&#125;&quot; activiti:async&#x3D;&quot;false&quot; activiti:exclusive&#x3D;&quot;true&quot; id&#x3D;&quot;_5&quot; name&#x3D;&quot;请假申请&quot;&#x2F;&gt;  
+    &lt;userTask activiti:assignee&#x3D;&quot;$&#123;supervisor&#125;&quot; activiti:async&#x3D;&quot;false&quot; activiti:exclusive&#x3D;&quot;true&quot; id&#x3D;&quot;_6&quot; name&#x3D;&quot;主管审批&quot;&gt;  
+      &lt;extensionElements&gt;  
+        &lt;activiti:executionListener class&#x3D;&quot;com.muppet.activiti.listener.ApplyTaskListener&quot; event&#x3D;&quot;end&quot;&#x2F;&gt;  
+      &lt;&#x2F;extensionElements&gt;  
+    &lt;&#x2F;userTask&gt;  
+    &lt;exclusiveGateway gatewayDirection&#x3D;&quot;Unspecified&quot; id&#x3D;&quot;_7&quot; name&#x3D;&quot;一级审批结果&quot;&#x2F;&gt;  
+    &lt;endEvent id&#x3D;&quot;_8&quot; name&#x3D;&quot;审批不通过&quot;&gt;  
+      &lt;extensionElements&gt;  
+        &lt;activiti:executionListener class&#x3D;&quot;com.muppet.activiti.listener.ApplyTaskListener&quot; event&#x3D;&quot;end&quot;&#x2F;&gt;  
+      &lt;&#x2F;extensionElements&gt;  
+    &lt;&#x2F;endEvent&gt;  
+    &lt;exclusiveGateway gatewayDirection&#x3D;&quot;Unspecified&quot; id&#x3D;&quot;_9&quot; name&#x3D;&quot;天数验证2&quot;&#x2F;&gt;  
+    &lt;userTask activiti:assignee&#x3D;&quot;$&#123;upperSupervisor&#125;&quot; activiti:async&#x3D;&quot;false&quot; activiti:exclusive&#x3D;&quot;true&quot; id&#x3D;&quot;_10&quot; name&#x3D;&quot;二级主管审批&quot;&#x2F;&gt;  
+    &lt;endEvent id&#x3D;&quot;_11&quot; name&#x3D;&quot;审批通过&quot;&gt;  
+      &lt;extensionElements&gt;  
+        &lt;activiti:executionListener class&#x3D;&quot;com.muppet.activiti.listener.ApplyTaskListener&quot; event&#x3D;&quot;end&quot;&#x2F;&gt;  
+      &lt;&#x2F;extensionElements&gt;  
+    &lt;&#x2F;endEvent&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_2&quot; sourceRef&#x3D;&quot;_4&quot; targetRef&#x3D;&quot;_5&quot;&#x2F;&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_3&quot; sourceRef&#x3D;&quot;_5&quot; targetRef&#x3D;&quot;_6&quot;&#x2F;&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_12&quot; sourceRef&#x3D;&quot;_6&quot; targetRef&#x3D;&quot;_7&quot;&#x2F;&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_13&quot; sourceRef&#x3D;&quot;_7&quot; targetRef&#x3D;&quot;_8&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result1&#x3D;&#x3D;false&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_14&quot; sourceRef&#x3D;&quot;_7&quot; targetRef&#x3D;&quot;_9&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result1&#x3D;&#x3D;true&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_15&quot; sourceRef&#x3D;&quot;_9&quot; targetRef&#x3D;&quot;_10&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;day&gt;3&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_16&quot; sourceRef&#x3D;&quot;_9&quot; targetRef&#x3D;&quot;_11&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;day&lt;&#x3D;3&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+    &lt;exclusiveGateway gatewayDirection&#x3D;&quot;Unspecified&quot; id&#x3D;&quot;_17&quot; name&#x3D;&quot;审批结果2&quot;&#x2F;&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_18&quot; sourceRef&#x3D;&quot;_10&quot; targetRef&#x3D;&quot;_17&quot;&#x2F;&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_19&quot; sourceRef&#x3D;&quot;_17&quot; targetRef&#x3D;&quot;_8&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result2&#x3D;&#x3D;false&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+    &lt;sequenceFlow id&#x3D;&quot;_20&quot; sourceRef&#x3D;&quot;_17&quot; targetRef&#x3D;&quot;_11&quot;&gt;  
+      &lt;conditionExpression xsi:type&#x3D;&quot;tFormalExpression&quot;&gt;&lt;![CDATA[#&#123;result2&#x3D;&#x3D;true&#125;]]&gt;&lt;&#x2F;conditionExpression&gt;  
+    &lt;&#x2F;sequenceFlow&gt;  
+  &lt;&#x2F;process&gt;  
+  &lt;bpmndi:BPMNDiagram documentation&#x3D;&quot;background&#x3D;#3C3F41;count&#x3D;1;horizontalcount&#x3D;1;orientation&#x3D;0;width&#x3D;842.4;height&#x3D;1195.2;imageableWidth&#x3D;832.4;imageableHeight&#x3D;1185.2;imageableX&#x3D;5.0;imageableY&#x3D;5.0&quot; id&#x3D;&quot;Diagram-_1&quot; name&#x3D;&quot;New Diagram&quot;&gt;  
+    &lt;bpmndi:BPMNPlane bpmnElement&#x3D;&quot;apply_processor_1&quot;&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_4&quot; id&#x3D;&quot;Shape-_4&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;525.0&quot; y&#x3D;&quot;170.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_5&quot; id&#x3D;&quot;Shape-_5&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;85.0&quot; x&#x3D;&quot;495.0&quot; y&#x3D;&quot;285.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;85.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_6&quot; id&#x3D;&quot;Shape-_6&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;85.0&quot; x&#x3D;&quot;500.0&quot; y&#x3D;&quot;390.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;85.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_7&quot; id&#x3D;&quot;Shape-_7&quot; isMarkerVisible&#x3D;&quot;false&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;520.0&quot; y&#x3D;&quot;495.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_8&quot; id&#x3D;&quot;Shape-_8&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;295.0&quot; y&#x3D;&quot;825.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_9&quot; id&#x3D;&quot;Shape-_9&quot; isMarkerVisible&#x3D;&quot;false&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;515.0&quot; y&#x3D;&quot;600.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_10&quot; id&#x3D;&quot;Shape-_10&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;95.0&quot; x&#x3D;&quot;485.0&quot; y&#x3D;&quot;720.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;55.0&quot; width&#x3D;&quot;95.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_11&quot; id&#x3D;&quot;Shape-_11&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;720.0&quot; y&#x3D;&quot;600.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNShape bpmnElement&#x3D;&quot;_17&quot; id&#x3D;&quot;Shape-_17&quot; isMarkerVisible&#x3D;&quot;false&quot;&gt;  
+        &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;510.0&quot; y&#x3D;&quot;810.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;32.0&quot; width&#x3D;&quot;32.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNShape&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_13&quot; id&#x3D;&quot;BPMNEdge__13&quot; sourceElement&#x3D;&quot;_7&quot; targetElement&#x3D;&quot;_8&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;520.1953352769677&quot; y&#x3D;&quot;511.0000000000001&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;310.0&quot; y&#x3D;&quot;700.0&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;310.0&quot; y&#x3D;&quot;825.0808012104277&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_12&quot; id&#x3D;&quot;BPMNEdge__12&quot; sourceElement&#x3D;&quot;_6&quot; targetElement&#x3D;&quot;_7&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;535.9999999999999&quot; y&#x3D;&quot;444.97894395853575&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;535.9999999999999&quot; y&#x3D;&quot;495.19533527696785&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_15&quot; id&#x3D;&quot;BPMNEdge__15&quot; sourceElement&#x3D;&quot;_9&quot; targetElement&#x3D;&quot;_10&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;530.9999999999999&quot; y&#x3D;&quot;632.3606171769437&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;530.9999999999999&quot; y&#x3D;&quot;719.6793002915451&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_14&quot; id&#x3D;&quot;BPMNEdge__14&quot; sourceElement&#x3D;&quot;_7&quot; targetElement&#x3D;&quot;_9&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;533.4999999999999&quot; y&#x3D;&quot;524.4297052154194&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;533.4999999999999&quot; y&#x3D;&quot;602.2445273261599&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_16&quot; id&#x3D;&quot;BPMNEdge__16&quot; sourceElement&#x3D;&quot;_9&quot; targetElement&#x3D;&quot;_11&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;546.8934865508442&quot; y&#x3D;&quot;616.0&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;719.6793107624761&quot; y&#x3D;&quot;616.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_19&quot; id&#x3D;&quot;BPMNEdge__19&quot; sourceElement&#x3D;&quot;_17&quot; targetElement&#x3D;&quot;_8&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;526.0000000000001&quot; y&#x3D;&quot;842.0919987042433&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;420.0&quot; y&#x3D;&quot;880.0&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;311.0&quot; y&#x3D;&quot;857.0256933063517&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;4.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;-10.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_18&quot; id&#x3D;&quot;BPMNEdge__18&quot; sourceElement&#x3D;&quot;_10&quot; targetElement&#x3D;&quot;_17&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;526.0000000000001&quot; y&#x3D;&quot;774.9649065975595&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;526.0000000000001&quot; y&#x3D;&quot;810.6344887161214&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_2&quot; id&#x3D;&quot;BPMNEdge__2&quot; sourceElement&#x3D;&quot;_4&quot; targetElement&#x3D;&quot;_5&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;541.0&quot; y&#x3D;&quot;202.23782176749842&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;541.0&quot; y&#x3D;&quot;285.1689882302127&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_3&quot; id&#x3D;&quot;BPMNEdge__3&quot; sourceElement&#x3D;&quot;_5&quot; targetElement&#x3D;&quot;_6&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;540.0&quot; y&#x3D;&quot;339.5907569376957&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;540.0&quot; y&#x3D;&quot;389.6933376525213&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;0.0&quot; width&#x3D;&quot;0.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;0.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+      &lt;bpmndi:BPMNEdge bpmnElement&#x3D;&quot;_20&quot; id&#x3D;&quot;BPMNEdge__20&quot; sourceElement&#x3D;&quot;_17&quot; targetElement&#x3D;&quot;_11&quot;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;541.3655112838787&quot; y&#x3D;&quot;826.0&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;659.0&quot; y&#x3D;&quot;724.0&quot;&#x2F;&gt;  
+        &lt;omgdi:waypoint x&#x3D;&quot;719.6793107624761&quot; y&#x3D;&quot;616.0&quot;&#x2F;&gt;  
+        &lt;bpmndi:BPMNLabel&gt;  
+          &lt;omgdc:Bounds height&#x3D;&quot;1.0&quot; width&#x3D;&quot;127.0&quot; x&#x3D;&quot;0.0&quot; y&#x3D;&quot;76.0&quot;&#x2F;&gt;  
+        &lt;&#x2F;bpmndi:BPMNLabel&gt;  
+      &lt;&#x2F;bpmndi:BPMNEdge&gt;  
+    &lt;&#x2F;bpmndi:BPMNPlane&gt;  
+  &lt;&#x2F;bpmndi:BPMNDiagram&gt;  
+&lt;&#x2F;definitions&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7-工作流引擎同类对比"><a href="#7-工作流引擎同类对比" class="headerlink" title="7. 工作流引擎同类对比"></a>7. 工作流引擎同类对比</h3><p>比较流行的 Camunda 和 Flowable 都是基于activiti 开发的。</p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104634849.jpeg" alt="图片"></p>
+<h4 id="同类框架对比"><a href="#同类框架对比" class="headerlink" title="同类框架对比"></a>同类框架对比</h4><p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104638515.jpeg" alt="图片"></p>
+<p><img src="/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/640-20250620104642016.jpeg" alt="图片"></p>
+<p>3个框架的使用流程基本一致</p>
+<h4 id="使用流程-5板斧"><a href="#使用流程-5板斧" class="headerlink" title="使用流程 5板斧"></a>使用流程 5板斧</h4><ul>
+<li><strong>定义BPMN流程图，</strong>使用建模工具设计定义流程图。</li>
+<li><strong>部署流程，</strong>将BPMN流程图部署到工作流引擎中。</li>
+<li><strong>启动流程实例，</strong>通过工作流引擎基于流程模版，启动新流程实例。</li>
+<li><strong>执行任务，</strong>流程执行中，引擎会为任务节点创建任务，分配给对应执行人。</li>
+<li><strong>监听事件，</strong>开发者可以注册监听器来捕获流程执行过程中的各种事件，例如任务完成、流程结束等。</li>
+<li><strong>查询和监控，</strong>工作流引擎通常提供了查询和监控功能，允许开发者和管理人员查看流程实例的状态、任务执行情况以及历史数</li>
+</ul>
+<h3 id="8-继续学习方向"><a href="#8-继续学习方向" class="headerlink" title="8. 继续学习方向"></a>8. 继续学习方向</h3><ul>
+<li>事件类型和事件监听。</li>
+<li>任务类型；接受任务、服务任务、脚本任务学习</li>
+<li>任务监听和执行监听器</li>
+<li>表单管理</li>
+<li>顺序流程和网关（并行网关等）</li>
+<li>性能和扩展；ID生成和 分库分表</li>
+</ul>
+<h3 id="9-总结"><a href="#9-总结" class="headerlink" title="9. 总结"></a>9. 总结</h3><ul>
+<li>activiti 工作流引擎适用场景，涉及多用户参与的流程管理。</li>
+<li>activiti 工作流开发分两步 1）设计流程图 2）部署流程图 3) 发起和驱动流程实例</li>
+<li>新增流程模版，无需开发代码驱动流程和分支判定。仅需要适配前端页面和简单的后端交互类接口。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yangxiaodg</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yangxiaodg.github.io/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/">https://yangxiaodg.github.io/2025/06/20/springboot-ji-jian-shen-pi-liu-qing-jia-xi-tong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yangxiaodg</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/springboot/">
+                                    <span class="chip bg-color">springboot</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E/">
+                                    <span class="chip bg-color">流程引擎</span>
+                                </a>
+                            
+                                <a href="/tags/activity/">
+                                    <span class="chip bg-color">activity</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/06/20/sentinel-zhen-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yangxiaodg
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/09/18/completablefuture-yi-bu-bian-cheng-zhi-mei/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CompletableFuture异步编程之美">
+                        
+                        <span class="card-title">CompletableFuture异步编程之美</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CompletableFuture异步编程之美
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%82%E6%AD%A5/">
+                        <span class="chip bg-color">异步</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+            
+            <a href="/about" target="_blank">yangxiaodg</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">204.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yangxiaodg" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:yangxiaodong@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=894562504" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 894562504" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
